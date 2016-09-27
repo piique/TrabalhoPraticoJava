@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+/*
         Scanner in = new Scanner(System.in);
         ArrayList<Perfil> usuarios = new ArrayList<>();
         int opc = 0;
@@ -39,17 +39,16 @@ public class Main {
                     System.out.println("CADASTRO CONCLUIDO!");
                     System.in.read();
 
-                    }
+                    
                     break;
                 case 2:
                     System.out.println("Excluir usuario ?");
                     int y = -10;
-                    
-                        System.out.println("Qual usuario deseja excluir? (nome)");
+                     System.out.println("Qual usuario deseja excluir? (nome)");
                         nome = in.nextLine();
                         for (int i = 0; i < usuarios.size(); i++) {
                             Perfil x = usuarios.get(i);
-                            if (p.getNome().equals(nome)) {
+                            if (x.getNome().equals(nome)) {
                                 usuarios.remove(x);
                                 System.out.println("Usuario excluido!!!");
                                 i = usuarios.size() + 1;
@@ -57,7 +56,7 @@ public class Main {
                                 y = i + 100;
                             }  
                         }
-                        if (x <= usuarios.size()) {
+                        if (y <= usuarios.size()) {
                             System.out.println("Pessoa nao encontrada!");
                             System.in.read();
                         }
@@ -142,9 +141,10 @@ public class Main {
                     for (int i = 0; i < 100; i++) {
                         System.out.println("");
                     }
-                 */
+               
             }
 
         }
-    }
+    }*/
 }
+
