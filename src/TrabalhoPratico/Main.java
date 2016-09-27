@@ -8,8 +8,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         Scanner in = new Scanner(System.in);
-        ArrayList<Homem> homem = new ArrayList<>();
-        ArrayList<Mulher> mulher = new ArrayList<>();
+        ArrayList<Perfil> usuarios = new ArrayList<>();
         int opc = 0;
         int sexo;
         String nome;
@@ -29,111 +28,47 @@ public class Main {
             in.nextLine();
             switch (opc) {
                 case 1:
-                    System.out.println("Qual o sexo do usuario? (1)masculino ou (2)feminino");
-                    sexo = in.nextInt();
-                    in.nextLine();
-                    if (sexo == 1) {
-                        Homem h = new Homem();
-                        System.out.println("Qual o nome a ser cadastrado?");
-                        h.setNome(in.nextLine());
-                        System.out.println("Qual a senha a ser cadastrada?");
-                        h.setSenha(in.nextLine());
-                        System.out.println("Informe a idade ");
-                        h.setIdade(in.nextDouble());
-                        homem.add(h);
-                        System.out.println("CADASTRO CONCLUIDO!");
-                        System.in.read();
-                    } else {
-                        Mulher m = new Mulher();
-                        System.out.println("Qual o nome a ser cadastrado?");
-                        m.setNome(in.nextLine());
-                        System.out.println("Qual a senha a ser cadastrada?");
-                        m.setSenha(in.nextLine());
-                        System.out.println("Informe a idade ");
-                        m.setIdade(in.nextDouble());
-                        mulher.add(m);
-                        System.out.println("CADASTRO CONCLUIDO!");
-                        System.in.read();
+                    Perfil p = new Perfil();
+                    System.out.println("Qual o nome a ser cadastrado?");
+                    p.setNome(in.nextLine());
+                    System.out.println("Qual a senha a ser cadastrada?");
+                    p.setSenha(in.nextLine());
+                    System.out.println("Informe a idade ");
+                    p.setIdade(in.nextDouble());
+                    usuarios.add(p);
+                    System.out.println("CADASTRO CONCLUIDO!");
+                    System.in.read();
 
                     }
                     break;
                 case 2:
-                    int x = -10;
-                    System.out.println("Excluir usuario masculino ou feminino? (1)masculino ou (2)feminino");
-                    sexo = in.nextInt();
-                    in.nextLine();
-                    if (sexo == 1) {
+                    System.out.println("Excluir usuario ?");
+                    int y = -10;
+                    
                         System.out.println("Qual usuario deseja excluir? (nome)");
                         nome = in.nextLine();
-                        for (int i = 0; i < homem.size(); i++) {
-                            Homem p = homem.get(i);
+                        for (int i = 0; i < usuarios.size(); i++) {
+                            Perfil x = usuarios.get(i);
                             if (p.getNome().equals(nome)) {
-                                homem.remove(p);
+                                usuarios.remove(x);
                                 System.out.println("Usuario excluido!!!");
-                                i = homem.size() + 1;
+                                i = usuarios.size() + 1;
                                 System.in.read();
-                                x = i + 100;
-                            }
-                            
+                                y = i + 100;
+                            }  
                         }
-                        if (x <= homem.size()) {
+                        if (x <= usuarios.size()) {
                             System.out.println("Pessoa nao encontrada!");
                             System.in.read();
                         }
-
-                    } else {
-                        System.out.println("Qual usuario deseja excluir? (nome)");
-                        nome = in.nextLine();
-                        for (int i = 0; i < mulher.size(); i++) {
-                            Mulher p = mulher.get(i);
-                            if (p.getNome().equals(nome)) {
-                                mulher.remove(p);
-                                System.out.println("Usuario excluido!!!");
-                                i = homem.size() + 1;
-                                System.in.read();
-                                x = i + 100;
-                            }
-                            
-                        }
-                        if (x <= mulher.size()) {
-                            System.out.println("Pessoa nao encontrada!");
-                            System.in.read();
-                        }
-                    }
-
                     break;
 
                 case 3:
-                    System.out.println("Excluir usuario masculino ou feminino? (1)masculino ou (2)feminino");
-                    sexo = in.nextInt();
-                    in.nextLine();
-                    if (sexo == 1) {
                         System.out.println("Qual usuario deseja modificar? (nome)");
                         nome = in.nextLine();
-                        for (int i = 0; i < homem.size(); i++) {
-                            Homem h = homem.get(i);
-                            if (h.getNome().equals(nome)) {
-                                System.out.println("Esceva os novos dados ");
-                                System.out.println("Nome: ");
-                                h.setNome(in.nextLine());
-                                System.out.println("Senha: ");
-                                h.setSenha(in.nextLine());
-                                System.out.println("Idade: ");
-                                h.setIdade(in.nextDouble());
-                                homem.set(i, h);//coloca os dados de Homem na posição i, sobrepondo a informação anterior
-                                System.out.println("Usuario atualizado!!");
-                                System.in.read();
-                            } else {
-                                System.out.println("Pessoa nao encontrada!");
-                                System.in.read();
-                            }
-                        }
-                    } else {
-                        System.out.println("Qual usuario deseja modificar? (nome)");
-                        nome = in.nextLine();
-                        for (int i = 0; i < mulher.size(); i++) {
-                            Mulher h = mulher.get(i);
-                            if (h.getNome().equals(nome)) {
+                        for (int i = 0; i < usuarios.size(); i++) {
+                            Perfil x = usuarios.get(i);
+                            if (p.getNome().equals(nome)) {
                                 System.out.println("Esceva os novos dados: ");
                                 System.out.println("Nome: ");
                                 h.setNome(in.nextLine());
@@ -149,8 +84,6 @@ public class Main {
                                 System.in.read();
                             }
                         }
-                    }
-
                     break;
                 case 4:
                     System.out.println("Pesquisar usuario masculino ou feminino? (1)masculino ou (2)feminino");
