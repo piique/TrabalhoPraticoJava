@@ -1,6 +1,10 @@
 package TrabalhoPratico;
 
 public class Perfil extends Usuario{
+    public Perfil(String x, String y){
+        senha = y;
+        nome = x;
+    }
     
     public void setNome(String nome) {
         this.nome = nome;
