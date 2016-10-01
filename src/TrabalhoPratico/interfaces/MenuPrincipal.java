@@ -1,12 +1,11 @@
 package TrabalhoPratico.interfaces;
 
-import TrabalhoPratico.Perfil;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class MenuPrincipal extends javax.swing.JFrame {
 
@@ -166,7 +165,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void buttonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEntrarActionPerformed
         try {
 
-            String file = "C:\\Users\\Aluno\\Desktop\\Usuarios.txt";
+            String file = "C:\\Users\\lenovo user\\Desktop\\Usuarios.txt";
+
             ManipuladorArquivo a = new ManipuladorArquivo(file);
             
             ArrayList<String> linhas = a.armazenar();
@@ -181,8 +181,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     agenda.setVisible(true);
                     break;
                 }
-
             }
+            JOptionPane.showMessageDialog(null,"Usuario-Senha nao encontrado");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
