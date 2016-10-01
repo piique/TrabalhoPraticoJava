@@ -163,26 +163,33 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEntrarActionPerformed
+        int aux = 0;
         try {
 
             String file = "C:\\Users\\lenovo user\\Desktop\\Usuarios.txt";
 
             ManipuladorArquivo a = new ManipuladorArquivo(file);
-            
-            ArrayList<String> linhas = a.armazenar();
 
+            ArrayList<String> linhas = a.armazenar();
             for (int i = 0; i < linhas.size(); i++) {
                 String linha = linhas.get(i);
                 String[] vetor = linha.split(";");
-                
-                
+
                 if (txtUsuario.getText().equals(vetor[0]) && txtSenha.getText().equals(vetor[1])) {
                     Agenda agenda = new Agenda();
                     agenda.setVisible(true);
+                    setVisible(false);
+                    dispose();
+                    aux=3;
                     break;
                 }
             }
-            JOptionPane.showMessageDialog(null,"Usuario-Senha nao encontrado");
+            if(aux==0){
+                txtUsuario.setText("");
+                txtSenha.setText("");
+                JOptionPane.showMessageDialog(null,"Usuario-Senha nao encontrado");
+            }
+
         } catch (FileNotFoundException ex) {
             Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
