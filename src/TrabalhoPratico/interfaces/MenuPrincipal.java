@@ -166,7 +166,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         int aux = 0;
         try {
 
-            String file = "C:\\Users\\lenovo user\\Desktop\\Usuarios.txt";
+            String file = "C:\\Users\\Dilce\\Desktop\\Usuarios.txt";
 
             ManipuladorArquivo a = new ManipuladorArquivo(file);
 
@@ -195,7 +195,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
-        ;
+        
     }//GEN-LAST:event_buttonEntrarActionPerformed
 
     private void buttonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrarActionPerformed
