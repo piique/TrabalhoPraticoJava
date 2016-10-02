@@ -1,69 +1,83 @@
 package TrabalhoPratico;
 
-public class Perfil extends Usuario{
-    public Perfil(String x, String y){
+public class Perfil extends Usuario {
+
+    public Perfil(String x, String y) {
+        usuario = x;
         senha = y;
-        nome = x;
     }
-    
+
+    @Override
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    @Override
     public void setSenha(String senha) {
         this.senha = senha;
     }
 
+    @Override
     public String getNome() {
         return nome;
     }
 
-    public void setIdade(double idade) {
+    @Override
+    public void setIdade(String idade) {
         this.idade = idade;
     }
 
-    public double getIdade() {
+    @Override
+    public String getIdade() {
         return idade;
     }
 
-    public void setPeso(double peso) {
+    @Override
+    public void setPeso(String peso) {
         this.peso = peso;
     }
 
-    public double getPeso() {
+    @Override
+    public String getPeso() {
         return peso;
     }
 
-    public void setAltura(double altura) {
+    @Override
+    public void setAltura(String altura) {
         this.altura = altura;
     }
 
-    public double getAltura() {
+    @Override
+    public String getAltura() {
         return altura;
     }
 
-
+    @Override
     public void setCelular(String celular) {
         this.celular = celular;
     }
 
+    @Override
     public String getCelular() {
         return celular;
     }
 
+    @Override
     public void setEmail(String email) {
         this.email = email;
     }
 
+    @Override
     public String getEmail() {
         return email;
     }
 
-    public double getImc(double altura, double peso) {
-        this.altura = altura;
-        this.peso = peso;
-        if (peso != 0 && peso > 0 && altura != 0 && altura > 0) {
-            double imc = peso / Math.pow(peso, 2);
+    @Override
+    public String getImc(String altura, String peso) {
+        double peso1 = Double.parseDouble(peso);
+        double altura1 = Double.parseDouble(altura);
+        if (peso1 != 0 && peso1 > 0 && altura1 != 0 && altura1 > 0) {
+            double imc = peso1 / Math.pow(peso1, 2);
         }
         return imc;
     }

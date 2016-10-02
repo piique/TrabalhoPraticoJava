@@ -6,21 +6,21 @@ public abstract class Usuario <T> {
 
     protected String usuario;
     protected String nome;
-    protected double idade;
+    protected String idade;
     protected String celular;
     protected String senha;
     protected  String email;
-    protected double peso;
-    protected double altura;
-    protected double imc;
+    protected String peso;
+    protected String altura;
+    protected String imc;
     
     public abstract void setNome(String nome);
 
     public abstract String getNome();
     
-    public abstract void setIdade(double idade);
+    public abstract void setIdade(String idade);
 
-    public abstract double getIdade();
+    public abstract String getIdade();
 
     public abstract void setCelular(String celular);
     
@@ -32,15 +32,15 @@ public abstract class Usuario <T> {
     
     public abstract String getEmail();
 
-    public abstract void setPeso(double peso);
+    public abstract void setPeso(String peso);
 
-    public abstract double getPeso();
+    public abstract String getPeso();
 
-    public abstract void setAltura(double altura);
+    public abstract void setAltura(String altura);
 
-    public abstract double getAltura();
+    public abstract String getAltura();
     
-    public abstract double getImc(double altura, double peso);
+    public abstract String getImc(String altura, String peso);
 
     
     

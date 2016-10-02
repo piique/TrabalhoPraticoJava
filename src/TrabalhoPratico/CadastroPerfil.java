@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package TrabalhoPratico.interfaces;
+package TrabalhoPratico;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -253,9 +253,10 @@ public class CadastroPerfil extends javax.swing.JFrame {
                     .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buttonCadastrar1)
-                    .addComponent(buttonCadastrar))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonCadastrar)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -303,7 +304,6 @@ public class CadastroPerfil extends javax.swing.JFrame {
                     + txtSenha.getText() +";"
                     +txtNome.getText() + ";"
                     + txtIdade.getText() +";"
-                    + txtTelefone.getText() +";"
                     + txtEmail.getText() +";"
                     + txtPeso.getText() +";"
                     + txtAltura.getText() +";"
