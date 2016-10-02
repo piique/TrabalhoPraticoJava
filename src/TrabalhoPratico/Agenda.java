@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  *
  * @author Aluno
  */
-public class Agenda extends MenuPrincipal {
+public class Agenda extends javax.swing.JFrame {
 
     /**
      * Creates new form Agenda
@@ -31,8 +31,8 @@ public class Agenda extends MenuPrincipal {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        novoEvento = new javax.swing.JButton();
+        visualizarEventos = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -58,12 +58,17 @@ public class Agenda extends MenuPrincipal {
 
         jPanel4.setBackground(new java.awt.Color(0, 204, 153));
 
-        jButton1.setText("jButton1");
-
-        jButton2.setText("jButton2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        novoEvento.setText("Novo Evento");
+        novoEvento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                novoEventoActionPerformed(evt);
+            }
+        });
+
+        visualizarEventos.setText("Eventos");
+        visualizarEventos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visualizarEventosActionPerformed(evt);
             }
         });
 
@@ -72,20 +77,20 @@ public class Agenda extends MenuPrincipal {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(98, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(54, 54, 54)
-                .addComponent(jButton2)
-                .addGap(115, 115, 115))
+                .addContainerGap(69, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(visualizarEventos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(novoEvento, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(189, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(104, 104, 104))
+                .addContainerGap(102, Short.MAX_VALUE)
+                .addComponent(visualizarEventos)
+                .addGap(44, 44, 44)
+                .addComponent(novoEvento)
+                .addGap(124, 124, 124))
         );
 
         jTabbedPane1.addTab("Eventos", jPanel4);
@@ -179,7 +184,7 @@ public class Agenda extends MenuPrincipal {
                         .addComponent(jLabel1)
                         .addGap(56, 56, 56)
                         .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,9 +259,14 @@ public class Agenda extends MenuPrincipal {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void visualizarEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizarEventosActionPerformed
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_visualizarEventosActionPerformed
+
+    private void novoEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoEventoActionPerformed
+        CadastroEvento evento = new CadastroEvento();
+        evento.setVisible(true);
+    }//GEN-LAST:event_novoEventoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -299,8 +309,6 @@ public class Agenda extends MenuPrincipal {
     private java.awt.Label altura;
     private java.awt.Label email;
     private java.awt.Label idade;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -314,9 +322,11 @@ public class Agenda extends MenuPrincipal {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private java.awt.Label nome;
+    private javax.swing.JButton novoEvento;
     private java.awt.Label peso;
     private java.awt.Label senha;
     private java.awt.Label telefone;
     private java.awt.Label usuario;
+    private javax.swing.JButton visualizarEventos;
     // End of variables declaration//GEN-END:variables
 }

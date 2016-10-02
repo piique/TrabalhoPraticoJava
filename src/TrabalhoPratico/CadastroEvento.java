@@ -187,7 +187,8 @@ public class CadastroEvento extends javax.swing.JFrame {
 
     private void buttonEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEventoActionPerformed
         try{
-        String file = "C:\\Users\\Dilce\\Desktop\\Eventos.txt";
+        Diretorio diretorio = new Diretorio();
+        String file = diretorio.getEventos();
 
         ManipuladorArquivo a = new ManipuladorArquivo(file);
         
