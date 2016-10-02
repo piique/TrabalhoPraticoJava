@@ -287,7 +287,8 @@ public class CadastroPerfil extends javax.swing.JFrame {
 
     private void buttonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrarActionPerformed
         try{
-            String file = "C:\\Users\\Dilce\\Desktop\\Usuarios.txt";
+            Diretorio diretorio = new Diretorio();
+            String file = diretorio.getUsuarios();
 
             ManipuladorArquivo a = new ManipuladorArquivo(file);
 
