@@ -255,9 +255,8 @@ public class CadastroPerfil extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buttonCadastrar1)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(buttonCadastrar)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                    .addComponent(buttonCadastrar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtIdade, txtSenha, txtTelefone});
@@ -275,40 +274,32 @@ public class CadastroPerfil extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+    private void buttonCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrar1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeActionPerformed
-
-    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSenhaActionPerformed
-
-    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsuarioActionPerformed
+    }//GEN-LAST:event_buttonCadastrar1ActionPerformed
 
     private void buttonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrarActionPerformed
         try{
-        String file = "C:\\Users\\Dilce\\Desktop\\Usuarios.txt";
+            String file = "C:\\Users\\Dilce\\Desktop\\Usuarios.txt";
 
-        ManipuladorArquivo a = new ManipuladorArquivo(file);
-        
+            ManipuladorArquivo a = new ManipuladorArquivo(file);
+
             a.escritor(txtUsuario.getText() +";"
-                    + txtSenha.getText() +";"
-                    +txtNome.getText() + ";"
-                    + txtIdade.getText() +";"
-                    + txtEmail.getText() +";"
-                    + txtPeso.getText() +";"
-                    + txtAltura.getText() +";"
-                    + txtProfissao.getText() +";");
-            
+                + txtSenha.getText() +";"
+                +txtNome.getText() + ";"
+                + txtIdade.getText() +";"
+                + txtEmail.getText() +";"
+                + txtPeso.getText() +";"
+                + txtAltura.getText() +";"
+                + txtProfissao.getText() +";");
+
             JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso");
             setVisible(false);
             dispose();
@@ -317,9 +308,17 @@ public class CadastroPerfil extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_buttonCadastrarActionPerformed
 
-    private void buttonCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrar1ActionPerformed
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonCadastrar1ActionPerformed
+    }//GEN-LAST:event_txtUsuarioActionPerformed
+
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeActionPerformed
+
+    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSenhaActionPerformed
 
     /**
      * @param args the command line arguments

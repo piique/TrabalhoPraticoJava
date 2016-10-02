@@ -188,11 +188,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     usuario.setPeso(vetor[6]);
                     usuario.setAltura(vetor[7]);
                     //adiciona informações do vetor para classe Perfil*/
-                    setVisible(false);
-                    dispose();
+                    
                     Agenda agenda = new Agenda();
                     agenda.setVisible(true);
-                    
+                    setVisible(false);
+                    dispose();
                     aux = 3;
                     break;
                 }
