@@ -167,10 +167,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void buttonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEntrarActionPerformed
         int aux = 0;
-        
+
         try {
 
-            String file = Diretorio.Usuarios;
+            Diretorio diretorio = new Diretorio();
+            String file = diretorio.getUsuarios();
 
             ManipuladorArquivo a = new ManipuladorArquivo(file);
 
@@ -180,25 +181,26 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 String[] vetor = linha.split(";");
 
                 if (txtUsuario.getText().equals(vetor[0]) && txtSenha.getText().equals(vetor[1])) {
-                    Perfil usuario = new Perfil(txtUsuario.getText(), txtSenha.getText());
+                    /*Perfil usuario = new Perfil(txtUsuario.getText(), txtSenha.getText());
                     usuario.setNome(vetor[3]);
                     usuario.setIdade(vetor[4]);
                     usuario.setEmail(vetor[5]);
                     usuario.setPeso(vetor[6]);
                     usuario.setAltura(vetor[7]);
-                    //adiciona informações do vetor para classe Perfil
-                    Agenda agenda = new Agenda();
-                    agenda.setVisible(true);
+                    //adiciona informações do vetor para classe Perfil*/
                     setVisible(false);
                     dispose();
-                    aux=3;
+                    Agenda agenda = new Agenda();
+                    agenda.setVisible(true);
+                    
+                    aux = 3;
                     break;
                 }
             }
-            if(aux==0){
+            if (aux == 0) {
                 txtUsuario.setText("");
                 txtSenha.setText("");
-                JOptionPane.showMessageDialog(null,"Usuario-Senha nao encontrado");
+                JOptionPane.showMessageDialog(null, "Usuario-Senha nao encontrado");
             }
 
         } catch (FileNotFoundException ex) {
@@ -206,14 +208,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
+
     }//GEN-LAST:event_buttonEntrarActionPerformed
 
     private void buttonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrarActionPerformed
         CadastroPerfil cadastro = new CadastroPerfil();
         cadastro.setVisible(true);
-
     }//GEN-LAST:event_buttonCadastrarActionPerformed
 
     /**
