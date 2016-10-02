@@ -171,8 +171,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         try {
 
             Diretorio diretorio = new Diretorio();
+            Diretorio diretorio1 = new Diretorio();
             String file = diretorio.getUsuarios();
-
+            String auxx = diretorio1.getAux();
             ManipuladorArquivo a = new ManipuladorArquivo(file);
 
             ArrayList<String> linhas = a.armazenar();
@@ -188,7 +189,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     usuario.setPeso(vetor[6]);
                     usuario.setAltura(vetor[7]);
                     //adiciona informações do vetor para classe Perfil*/
-                    
+                    ManipuladorArquivo b = new ManipuladorArquivo(auxx);
+                    b.escritor1(txtUsuario.getText());
                     Agenda agenda = new Agenda();
                     agenda.setVisible(true);
                     setVisible(false);

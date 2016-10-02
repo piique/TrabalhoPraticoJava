@@ -5,7 +5,10 @@
  */
 package TrabalhoPratico;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -186,19 +189,20 @@ public class CadastroEvento extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEventoActionPerformed
-        try{
-        Diretorio diretorio = new Diretorio();
-        String file = diretorio.getEventos();
+        try {
+            Diretorio diretorio = new Diretorio();
+            Diretorio diretorio1 = new Diretorio();
+            ManipuladorArquivo a = new ManipuladorArquivo(diretorio.getEventos());
+            FileReader f = new FileReader(diretorio1.getAux());
+            BufferedReader readerf = new BufferedReader(f);
+            String linha = readerf.readLine();
+            a.escritor(linha + ";"
+                    + txtNomeEvento.getText() + ";"
+                    + txtDataEvento.getText() + ";"
+                    + txtHoraEvento.getText() + ";"
+                    + txtLocalEvento.getText() + ";");
 
-        ManipuladorArquivo a = new ManipuladorArquivo(file);
-        
-            a.escritor( 
-                        txtNomeEvento.getText() +";"
-                        +txtDataEvento.getText() + ";"
-                        + txtHoraEvento.getText() +";"
-                        + txtLocalEvento.getText() +";");
-            
-            JOptionPane.showMessageDialog(null,"Evento criado com sucesso");
+            JOptionPane.showMessageDialog(null, "Evento criado com sucesso!");
             setVisible(false);
             dispose();
         } catch (IOException ex) {

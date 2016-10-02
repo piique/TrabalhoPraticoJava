@@ -9,16 +9,21 @@ package TrabalhoPratico;
  *
  * @author lenovo user
  */
-public class Diretorio {
-    public String Usuarios = "C:\\Users\\lenovo user\\Desktop\\Usuarios.txt";
-    public String Eventos = "C:\\Users\\lenovo user\\Desktop\\Eventos.txt";
+public  class Diretorio {
 
-    public String getUsuarios() {
+    public  String Usuarios = "C:\\Users\\lenovo user\\Desktop\\Usuarios.txt";
+    public  String Eventos = "C:\\Users\\lenovo user\\Desktop\\Eventos.txt";
+    public  String aux = "C:\\Users\\lenovo user\\Desktop\\Auxiliar.txt";
+
+    public  String getUsuarios() {
         return Usuarios;
     }
 
     public String getEventos() {
         return Eventos;
     }
-    
+
+    public String getAux() {
+        return aux;
+    }
 }

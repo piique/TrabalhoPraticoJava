@@ -300,7 +300,6 @@ public class CadastroPerfil extends javax.swing.JFrame {
                 + txtPeso.getText() +";"
                 + txtAltura.getText() +";"
                 + txtProfissao.getText() +";");
-
             JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso");
             setVisible(false);
             dispose();
