@@ -166,7 +166,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                              <Component id="nome" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="txtNome" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="103" max="32767" attributes="0"/>
@@ -179,7 +179,7 @@
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <Component id="nome" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtNome" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -310,7 +310,7 @@
                 <Property name="text" type="java.lang.String" value="Usu&#xe1;rio:"/>
               </Properties>
             </Component>
-            <Component class="java.awt.Label" name="nome">
+            <Component class="java.awt.Label" name="txtNome">
               <Properties>
                 <Property name="text" type="java.lang.String" value="label2"/>
               </Properties>

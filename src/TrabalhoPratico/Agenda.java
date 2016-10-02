@@ -42,7 +42,7 @@ public class Agenda extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        nome = new java.awt.Label();
+        txtNome = new java.awt.Label();
         senha = new java.awt.Label();
         telefone = new java.awt.Label();
         idade = new java.awt.Label();
@@ -129,7 +129,7 @@ public class Agenda extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Usuário:");
 
-        nome.setText("label2");
+        txtNome.setText("label2");
 
         senha.setText("label2");
 
@@ -183,7 +183,7 @@ public class Agenda extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(56, 56, 56)
-                        .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(103, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -192,7 +192,7 @@ public class Agenda extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
-                    .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
@@ -321,11 +321,11 @@ public class Agenda extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private java.awt.Label nome;
     private javax.swing.JButton novoEvento;
     private java.awt.Label peso;
     private java.awt.Label senha;
     private java.awt.Label telefone;
+    private java.awt.Label txtNome;
     private java.awt.Label usuario;
     private javax.swing.JButton visualizarEventos;
     // End of variables declaration//GEN-END:variables

@@ -192,7 +192,8 @@ public class CadastroEvento extends javax.swing.JFrame {
 
         ManipuladorArquivo a = new ManipuladorArquivo(file);
         
-            a.escritor( txtNomeEvento.getText() +";"
+            a.escritor( 
+                        txtNomeEvento.getText() +";"
                         +txtDataEvento.getText() + ";"
                         + txtHoraEvento.getText() +";"
                         + txtLocalEvento.getText() +";");
