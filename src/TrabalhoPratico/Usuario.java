@@ -48,7 +48,7 @@ public abstract class Usuario <T> {
 
     public abstract String getAltura();
     
-    public abstract String getImc(String altura, String peso);
+    public abstract double getImc(String altura, String peso);
 
     
     

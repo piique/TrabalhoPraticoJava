@@ -73,12 +73,13 @@ public class Perfil extends Usuario {
     }
 
     @Override
-    public String getImc(String altura, String peso) {
+    public double getImc(String altura, String peso) {
         double peso1 = Double.parseDouble(peso);
         double altura1 = Double.parseDouble(altura);
+        double imcc = 0;
         if (peso1 != 0 && peso1 > 0 && altura1 != 0 && altura1 > 0) {
-            double imc = peso1 / Math.pow(peso1, 2);
+            imcc = peso1 / Math.pow(altura1, 2);
         }
-        return imc;
-    }
+        return imcc;
+    }   
 }

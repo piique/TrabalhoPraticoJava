@@ -54,12 +54,12 @@ public class ManipuladorArquivo {
         fwriter.write(linha + '\n');
         fwriter.close();
     }
-    public void escritor1(String linha) throws IOException {
+    /*public void escritor1(String linha) throws IOException {
         FileWriter fw = new FileWriter(file, false);
         BufferedWriter fwriter = new BufferedWriter(fw);
         fwriter.write(linha + '\n');
         fwriter.close();
-    }
+    }*/
 
     public ArrayList<String> armazenar() throws FileNotFoundException, IOException {
         ArrayList<String> arquivo = new ArrayList();

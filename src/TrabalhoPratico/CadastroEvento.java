@@ -197,16 +197,13 @@ public class CadastroEvento extends javax.swing.JFrame {
     private void buttonEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEventoActionPerformed
         try {
             Diretorio diretorio = new Diretorio();
-            Diretorio diretorio1 = new Diretorio();
+                       
             ManipuladorArquivo a = new ManipuladorArquivo(diretorio.getEventos());
-            FileReader f = new FileReader(diretorio1.getAux());
-            BufferedReader readerf = new BufferedReader(f);
-            String linha = readerf.readLine();
-            a.escritor(linha + ";"
+            a.escritor(UsuarioController.usuarioCorrente.getUsuario() + ";"
                     + txtNomeEvento.getText() + ";"
                     + txtDataEvento.getText() + ";"
                     + txtHoraEvento.getText() + ";"
-                    + txtLocalEvento.getText() + ";");
+                    + txtLocalEvento.getText() + ";" + "\n");
 
             JOptionPane.showMessageDialog(null, "Evento criado com sucesso!");
             setVisible(false);

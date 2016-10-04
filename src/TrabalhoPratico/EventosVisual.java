@@ -125,11 +125,11 @@ public class EventosVisual extends javax.swing.JFrame {
             Diretorio diretorio = new Diretorio();
             String file = diretorio.getEventos();
             Diretorio diretorio1 = new Diretorio();
-            String file1 = diretorio.getAux();
+            
             
 
             ManipuladorArquivo a = new ManipuladorArquivo(file);
-            ManipuladorArquivo b = new ManipuladorArquivo(file1);
+            
             ArrayList<String> linhas = a.armazenar();
   
                 for (int i = 0; i < linhas.size(); i++) {

@@ -13,7 +13,7 @@ public  class Diretorio {
 
     public  String Usuarios = "C:\\Users\\Aluno\\Desktop\\Usuarios.txt";
     public  String Eventos = "C:\\Users\\Aluno\\Desktop\\Eventos.txt";
-    public  String aux = "C:\\Users\\Aluno\\Desktop\\Auxiliar.txt";
+   
 
     public  String getUsuarios() {
         return Usuarios;
@@ -23,7 +23,4 @@ public  class Diretorio {
         return Eventos;
     }
 
-    public String getAux() {
-        return aux;
-    }
 }
