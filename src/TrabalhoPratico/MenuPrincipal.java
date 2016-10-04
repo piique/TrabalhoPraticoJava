@@ -182,13 +182,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 String[] vetor = linha.split(";");
 
                 if (txtUsuario.getText().equals(vetor[0]) && txtSenha.getText().equals(vetor[1])) {
-                    /*Perfil usuario = new Perfil(txtUsuario.getText(), txtSenha.getText());
-                    usuario.setNome(vetor[3]);
+                    
+                    Perfil usuario = new Perfil(txtUsuario.getText(), txtSenha.getText());
+                    usuario.setUsuario(vetor[0]);
+                    usuario.setNome(vetor[2]);
                     usuario.setIdade(vetor[4]);
                     usuario.setEmail(vetor[5]);
                     usuario.setPeso(vetor[6]);
                     usuario.setAltura(vetor[7]);
-                    //adiciona informações do vetor para classe Perfil*/
+                    UsuarioController.usuarioCorrente = usuario;
+                    
+                    //adiciona informações do vetor para classe Perfil
+                    
                     ManipuladorArquivo b = new ManipuladorArquivo(auxx);
                     b.escritor1(txtUsuario.getText());
                     Agenda agenda = new Agenda();

@@ -287,19 +287,20 @@ public class CadastroPerfil extends javax.swing.JFrame {
 
     private void buttonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrarActionPerformed
         try{
+            
             Diretorio diretorio = new Diretorio();
             String file = diretorio.getUsuarios();
 
             ManipuladorArquivo a = new ManipuladorArquivo(file);
 
-            a.escritor(txtUsuario.getText() +";"
-                + txtSenha.getText() +";"
-                +txtNome.getText() + ";"
-                + txtIdade.getText() +";"
-                + txtEmail.getText() +";"
-                + txtPeso.getText() +";"
-                + txtAltura.getText() +";"
-                + txtProfissao.getText() +";");
+                a.escritor(txtUsuario.getText() +";"
+                    + txtSenha.getText() +";"
+                    +txtNome.getText() + ";"
+                    + txtIdade.getText() +";"
+                    + txtEmail.getText() +";"
+                    + txtPeso.getText() +";"
+                    + txtAltura.getText() +";"
+                    + txtProfissao.getText() +";");
             JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso");
             setVisible(false);
             dispose();

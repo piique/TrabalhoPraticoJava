@@ -62,6 +62,12 @@ public class CadastroEvento extends javax.swing.JFrame {
             }
         });
 
+        txtDataEvento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDataEventoActionPerformed(evt);
+            }
+        });
+
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nome do Evento:");
@@ -213,6 +219,10 @@ public class CadastroEvento extends javax.swing.JFrame {
     private void txtNomeEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeEventoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeEventoActionPerformed
+
+    private void txtDataEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataEventoActionPerformed
+        
+    }//GEN-LAST:event_txtDataEventoActionPerformed
 
     /**
      * @param args the command line arguments

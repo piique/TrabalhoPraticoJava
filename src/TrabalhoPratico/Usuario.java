@@ -5,6 +5,14 @@ package TrabalhoPratico;
 public abstract class Usuario <T> {
 
     protected String usuario;
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
     protected String nome;
     protected String idade;
     protected String celular;
