@@ -20,14 +20,12 @@ public class ManipuladorArquivo {
         this.file = file; 
     }
 
-    public void leitor() throws FileNotFoundException, IOException {
+    public String leitor() throws FileNotFoundException, IOException {
         FileReader f = new FileReader(file);
         BufferedReader readerf = new BufferedReader(f);
         String linha = readerf.readLine();
-        while (linha != null) {
-            System.out.println(linha);
-            linha = readerf.readLine();
-        }
+        
+        return linha;
     }
 
     public String procurar(String palavra) throws FileNotFoundException, IOException {

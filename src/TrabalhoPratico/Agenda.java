@@ -264,7 +264,8 @@ public class Agenda extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void visualizarEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizarEventosActionPerformed
-        
+        EventosVisual evento = new EventosVisual();
+        evento.setVisible(true);
     }//GEN-LAST:event_visualizarEventosActionPerformed
 
     private void novoEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoEventoActionPerformed

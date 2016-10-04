@@ -45,7 +45,7 @@ public class EventosVisual extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 102, 0));
 
         Button.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        Button.setText("Eventos de :");
+        Button.setText("Mostrar:");
         Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonActionPerformed(evt);
@@ -99,33 +99,39 @@ public class EventosVisual extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
         DefaultListModel lista = new DefaultListModel();
-        
+
     private void ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonActionPerformed
-        
+
         try {
+
+            Diretorio diretorio = new Diretorio();
+            String file = diretorio.getEventos();
+            Diretorio diretorio1 = new Diretorio();
+            String file1 = diretorio.getAux();
             
-        Diretorio diretorio = new Diretorio();
-        Diretorio diretorio1 = new Diretorio();
-        String file = diretorio.getEventos();
-        ManipuladorArquivo a = new ManipuladorArquivo(file);
-        ArrayList<String> linhas = a.armazenar();
-        
-            for (int i = 0; i < linhas.size(); i++) {
-                String linha = linhas.get(i);
-                String[] vetor = linha.split(";");
-                JList1.setModel(lista);
-                lista.addElement(vetor[i].trim());
-                
-                
-            }
+
+            ManipuladorArquivo a = new ManipuladorArquivo(file);
+            ManipuladorArquivo b = new ManipuladorArquivo(file1);
+            ArrayList<String> linhas = a.armazenar();
+  
+                for (int i = 0; i < linhas.size();) {
+                    String linha = linhas.get(i);
+                    String[] vetor = linha.split(";");
+                        JList1.setModel(lista);
+                        if (b.leitor() == vetor[0]) { 
+                            for (int x = 1; x < vetor.length; x++) {
+                                lista.addElement(vetor[x]);
+                            }
+                        }else{
+                            i++;
+                        }
+                }
+            
         } catch (IOException ex) {
             Logger.getLogger(EventosVisual.class.getName()).log(Level.SEVERE, null, ex);
         }
-            
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_ButtonActionPerformed
 
     /**
