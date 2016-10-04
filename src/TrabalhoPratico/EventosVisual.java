@@ -114,17 +114,14 @@ public class EventosVisual extends javax.swing.JFrame {
             ManipuladorArquivo b = new ManipuladorArquivo(file1);
             ArrayList<String> linhas = a.armazenar();
   
-                for (int i = 0; i < linhas.size();) {
+                for (int i = 0; i < linhas.size(); i++) {
                     String linha = linhas.get(i);
                     String[] vetor = linha.split(";");
                         JList1.setModel(lista);
-                        if (b.leitor() == vetor[0]) { 
-                            for (int x = 1; x < vetor.length; x++) {
-                                lista.addElement(vetor[x]);
-                            }
-                        }else{
-                            i++;
+                        for (int x = 1; x < vetor.length; x++) {
+                            lista.addElement(vetor[x]);
                         }
+                        
                 }
             
         } catch (IOException ex) {
