@@ -187,6 +187,7 @@ public class EventosVisual extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                new Agenda().setVisible(false);
                 new EventosVisual().setVisible(true);
             }
         });

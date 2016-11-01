@@ -217,6 +217,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void buttonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrarActionPerformed
         CadastroPerfil cadastro = new CadastroPerfil();
         cadastro.setVisible(true);
+        
     }//GEN-LAST:event_buttonCadastrarActionPerformed
 
     /**

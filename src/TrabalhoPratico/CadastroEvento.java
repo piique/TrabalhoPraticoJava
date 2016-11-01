@@ -208,6 +208,8 @@ public class CadastroEvento extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Evento criado com sucesso!");
             setVisible(false);
             dispose();
+            Agenda agenda = new Agenda();
+            agenda.setVisible(true);
         } catch (IOException ex) {
             Logger.getLogger(CadastroEvento.class.getName()).log(Level.SEVERE, null, ex);
         }
