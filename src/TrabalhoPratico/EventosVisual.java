@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
-import javax.swing.JList;
+//import javax.swing.JList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -36,25 +37,22 @@ public class EventosVisual extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Button = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        JList1 = new javax.swing.JList<>();
         txtNome = new java.awt.Label();
         jButton1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableEventos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(204, 102, 0));
 
         Button.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        Button.setText("Mostrar:");
+        Button.setText("Exibir:");
         Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonActionPerformed(evt);
             }
         });
-
-        JList1.setFont(new java.awt.Font("DejaVu Sans", 3, 12)); // NOI18N
-        jScrollPane1.setViewportView(JList1);
 
         jButton1.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jButton1.setText("Voltar");
@@ -64,35 +62,54 @@ public class EventosVisual extends javax.swing.JFrame {
             }
         });
 
+        jTableEventos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Evento", "Data", "Hora", "Endereço"
+            }
+        ));
+        jScrollPane2.setViewportView(jTableEventos);
+        if (jTableEventos.getColumnModel().getColumnCount() > 0) {
+            jTableEventos.getColumnModel().getColumn(0).setMinWidth(60);
+            jTableEventos.getColumnModel().getColumn(0).setPreferredWidth(70);
+            jTableEventos.getColumnModel().getColumn(0).setMaxWidth(110);
+            jTableEventos.getColumnModel().getColumn(1).setMinWidth(50);
+            jTableEventos.getColumnModel().getColumn(1).setPreferredWidth(50);
+            jTableEventos.getColumnModel().getColumn(1).setMaxWidth(50);
+            jTableEventos.getColumnModel().getColumn(2).setMinWidth(50);
+            jTableEventos.getColumnModel().getColumn(2).setMaxWidth(50);
+            jTableEventos.getColumnModel().getColumn(3).setMinWidth(150);
+            jTableEventos.getColumnModel().getColumn(3).setMaxWidth(200);
+        }
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Button, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Button, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(202, 202, 202))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 37, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(9, 9, 9)
+                .addGap(7, 7, 7)
                 .addComponent(Button, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
@@ -103,15 +120,15 @@ public class EventosVisual extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 423, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -136,11 +153,13 @@ public class EventosVisual extends javax.swing.JFrame {
                     String linha = linhas.get(i);
                     String[] vetor = linha.split(";");
                     if(vetor[0].equals(UsuarioController.usuarioCorrente.getUsuario())){
-                        JList1.setModel(lista);
-                        for (int x = 1; x < vetor.length; x++) {
-                            
-                            lista.addElement(vetor[x]);
-                        }
+                        DefaultTableModel eventos = (DefaultTableModel) jTableEventos.getModel();                      
+                        //JList1.setModel(lista);
+                        Object[] dados = {vetor[1], vetor[2], vetor[3], vetor[4]};
+                       // for (int x = 1; x < vetor.length; x++) {                        
+                       // lista.addElement(vetor[x]);                         
+                       //}
+                        eventos.addRow(dados);
                     }
                 }
             
@@ -195,10 +214,10 @@ public class EventosVisual extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Button;
-    private javax.swing.JList<String> JList1;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTableEventos;
     private java.awt.Label txtNome;
     // End of variables declaration//GEN-END:variables
 }

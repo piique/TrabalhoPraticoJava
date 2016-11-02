@@ -68,6 +68,18 @@ public class CadastroEvento extends javax.swing.JFrame {
             }
         });
 
+        txtHoraEvento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtHoraEventoActionPerformed(evt);
+            }
+        });
+
+        txtLocalEvento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLocalEventoActionPerformed(evt);
+            }
+        });
+
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nome do Evento:");
@@ -222,6 +234,14 @@ public class CadastroEvento extends javax.swing.JFrame {
     private void txtDataEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataEventoActionPerformed
         
     }//GEN-LAST:event_txtDataEventoActionPerformed
+
+    private void txtHoraEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoraEventoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHoraEventoActionPerformed
+
+    private void txtLocalEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLocalEventoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLocalEventoActionPerformed
 
     /**
      * @param args the command line arguments
