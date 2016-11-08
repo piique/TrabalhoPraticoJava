@@ -11,7 +11,7 @@ package TrabalhoPratico;
  */
 public  class Diretorio {
 
-    public  String Usuarios = "C:\\Users\\diretorio\\Desktop\\Usuarios.txt";
+    public  String Usuarios = "C:\\Users\\Aluno\\Desktop\\Usuarios.txt";
     public  String Eventos = "C:\\Users\\Aluno\\Desktop\\Eventos.txt";
    
 

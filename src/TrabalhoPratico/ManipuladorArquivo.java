@@ -51,7 +51,7 @@ public class ManipuladorArquivo {
     public void escritor(String linha) throws IOException {
         FileWriter fw = new FileWriter(file, true);
         BufferedWriter fwriter = new BufferedWriter(fw);
-        fwriter.write(linha + '\n');
+        fwriter.write(linha + "\n");
         fwriter.close();
     }
     /*public void escritor1(String linha) throws IOException {

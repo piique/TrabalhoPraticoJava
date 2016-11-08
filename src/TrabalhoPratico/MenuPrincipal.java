@@ -272,4 +272,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtSenha;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
+
+    private boolean comparar(String text, String text2) {
+        if(text.length() != text2.length()-1) {
+            return false;
+        }
+        for (int i = 0; i < text.length(); i++) {
+            if(text.charAt(i) != text2.charAt(i+1)) {
+                return false;
+            }            
+        }
+        
+        return true;
+    }
 }
