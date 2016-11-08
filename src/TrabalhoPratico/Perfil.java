@@ -66,12 +66,21 @@ public class Perfil extends Usuario {
     public void setEmail(String email) {
         this.email = email;
     }
+    @Override
+    public String getSaldo() {
+        return String.valueOf(saldo);
+    }
+
+    @Override
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
 
     @Override
     public String getEmail() {
         return email;
     }
-
+    
     @Override
     public double getImc(String altura, String peso) {
         double peso1 = Double.parseDouble(peso);

@@ -188,6 +188,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     usuario.setEmail(vetor[4]);
                     usuario.setPeso(vetor[5]);
                     usuario.setAltura(vetor[6]);
+                    usuario.setSaldo(Double.parseDouble(vetor[7]));
                     UsuarioController.usuarioCorrente = usuario;
                     
                     //adiciona informações do vetor para classe Perfil

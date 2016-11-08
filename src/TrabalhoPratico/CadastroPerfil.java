@@ -309,7 +309,13 @@ public class CadastroPerfil extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIdadeActionPerformed
 
     private void buttonCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrar1ActionPerformed
-        // TODO add your handling code here:
+        txtUsuario.setText("");
+        txtSenha.setText("");
+        txtNome.setText("");
+        txtIdade.setText("");
+        txtEmail.setText("");
+        txtPeso.setText("");
+        txtAltura.setText("");
     }//GEN-LAST:event_buttonCadastrar1ActionPerformed
 
     private void buttonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrarActionPerformed
@@ -319,18 +325,18 @@ public class CadastroPerfil extends javax.swing.JFrame {
             String file = diretorio.getUsuarios();
 
             ManipuladorArquivo a = new ManipuladorArquivo(file);
-            try{
+            try {
 
                 a.escritor(txtUsuario.getText() + ";"
-                    + txtSenha.getText() + ";"
-                    + txtNome.getText() + ";"
-                    + txtIdade.getText() + ";"
-                    + txtEmail.getText() + ";"
-                    + txtPeso.getText() + ";"
-                    + txtAltura.getText() + ";");
+                        + txtSenha.getText() + ";"
+                        + txtNome.getText() + ";"
+                        + txtIdade.getText() + ";"
+                        + txtEmail.getText() + ";"
+                        + txtPeso.getText() + ";"
+                        + txtAltura.getText() + ";" + 0);
 
                 JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
-            }catch(NumberFormatException e){
+            } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Escreva apenas numeoros nos campos altura e peso");
                 txtPeso.setText("");
                 txtAltura.setText("");

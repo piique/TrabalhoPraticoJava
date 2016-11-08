@@ -21,6 +21,11 @@ public abstract class Usuario <T> {
     protected String peso;
     protected String altura;
     protected String imc;
+    protected double saldo;
+
+    public abstract void setSaldo(double saldo);
+    
+    public abstract String getSaldo();
     
     public abstract void setNome(String nome);
 
