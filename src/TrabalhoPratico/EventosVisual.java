@@ -24,6 +24,34 @@ public class EventosVisual extends javax.swing.JFrame {
      */
     public EventosVisual() {
         initComponents();
+        try {
+
+            Diretorio diretorio = new Diretorio();
+            String file = diretorio.getEventos();
+            Diretorio diretorio1 = new Diretorio();
+
+            ManipuladorArquivo a = new ManipuladorArquivo(file);
+
+            ArrayList<String> linhas = a.armazenar();
+
+            for (int i = 0; i < linhas.size(); i++) {
+                String linha = linhas.get(i);
+                String[] vetor = linha.split(";");
+                if(vetor[0].equals(UsuarioController.usuarioCorrente.getUsuario())){
+                    DefaultTableModel eventos = (DefaultTableModel) jTableEventos.getModel();
+                    //JList1.setModel(lista);
+                    Object[] dados = {vetor[1], vetor[2], vetor[3], vetor[4]};
+                    // for (int x = 1; x < vetor.length; x++) {
+                        // lista.addElement(vetor[x]);
+                        //}
+                    eventos.addRow(dados);
+                }
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(EventosVisual.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     /**
@@ -36,7 +64,6 @@ public class EventosVisual extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        Button = new javax.swing.JButton();
         txtNome = new java.awt.Label();
         jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -45,14 +72,6 @@ public class EventosVisual extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(204, 102, 0));
-
-        Button.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        Button.setText("Exibir:");
-        Button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonActionPerformed(evt);
-            }
-        });
 
         jButton1.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jButton1.setText("Voltar");
@@ -70,6 +89,7 @@ public class EventosVisual extends javax.swing.JFrame {
                 "Evento", "Data", "Hora", "Endereço"
             }
         ));
+        jTableEventos.setEnabled(false);
         jScrollPane2.setViewportView(jTableEventos);
         if (jTableEventos.getColumnModel().getColumnCount() > 0) {
             jTableEventos.getColumnModel().getColumn(0).setMinWidth(60);
@@ -90,26 +110,25 @@ public class EventosVisual extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Button, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(7, 7, 7)
-                .addComponent(Button, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(237, 237, 237))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(jButton1)
                 .addContainerGap(13, Short.MAX_VALUE))
         );
@@ -133,41 +152,6 @@ public class EventosVisual extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
         DefaultListModel lista = new DefaultListModel();
-
-    private void ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonActionPerformed
-
-        try {
-
-            Diretorio diretorio = new Diretorio();
-            String file = diretorio.getEventos();
-            Diretorio diretorio1 = new Diretorio();
-            
-            
-
-            ManipuladorArquivo a = new ManipuladorArquivo(file);
-            
-            ArrayList<String> linhas = a.armazenar();
-  
-                for (int i = 0; i < linhas.size(); i++) {
-                    String linha = linhas.get(i);
-                    String[] vetor = linha.split(";");
-                    if(vetor[0].equals(UsuarioController.usuarioCorrente.getUsuario())){
-                        DefaultTableModel eventos = (DefaultTableModel) jTableEventos.getModel();                      
-                        //JList1.setModel(lista);
-                        Object[] dados = {vetor[1], vetor[2], vetor[3], vetor[4]};
-                       // for (int x = 1; x < vetor.length; x++) {                        
-                       // lista.addElement(vetor[x]);                         
-                       //}
-                        eventos.addRow(dados);
-                    }
-                }
-            
-        } catch (IOException ex) {
-            Logger.getLogger(EventosVisual.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-
-    }//GEN-LAST:event_ButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Agenda agenda = new Agenda();
@@ -212,7 +196,6 @@ public class EventosVisual extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Button;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
