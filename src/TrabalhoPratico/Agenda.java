@@ -370,7 +370,6 @@ public class Agenda extends javax.swing.JFrame {
         txtGanhos.setText("");
         if (Double.parseDouble(txtSaldo.getText()) < 0.0) {
             JOptionPane.showMessageDialog(null, "ATENÇÃO: SEU SALDO ESTA NEGATIVO!");
-        } else {
         }
     }//GEN-LAST:event_jButtonAtualizarActionPerformed
 
