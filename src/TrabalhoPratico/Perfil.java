@@ -7,6 +7,10 @@ public class Perfil extends Usuario {
         senha = y;
     }
 
+    public String getSenha() {
+        return senha;
+    }
+
     @Override
     public void setNome(String nome) {
         this.nome = nome;

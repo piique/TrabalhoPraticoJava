@@ -5,6 +5,11 @@
  */
 package TrabalhoPratico;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -19,19 +24,19 @@ public class Agenda extends javax.swing.JFrame {
      */
     public Agenda() {
         initComponents();
-        
+
         //Double imc = Double.parseDouble(UsuarioController.usuarioCorrente.getPeso()) / Math.pow(Double.parseDouble(UsuarioController.usuarioCorrente.getAltura()), 2);
         this.txtNome1.setText(UsuarioController.usuarioCorrente.getNome());
-        this.txtIdade.setText(UsuarioController.usuarioCorrente.getIdade());      
+        this.txtIdade.setText(UsuarioController.usuarioCorrente.getIdade());
         this.txtEmail.setText(UsuarioController.usuarioCorrente.getEmail());
         this.txtPeso.setText(UsuarioController.usuarioCorrente.getPeso());
         this.txtAltura.setText(UsuarioController.usuarioCorrente.getAltura());
         this.txtUsuario.setText(UsuarioController.usuarioCorrente.getUsuario());
-        
-        this.txtImc.setText(String.valueOf(UsuarioController.usuarioCorrente.getImc(UsuarioController.usuarioCorrente.getAltura().replace(",","."),
-                                            UsuarioController.usuarioCorrente.getPeso().replace(",","."))));
+
+        this.txtImc.setText(String.valueOf(UsuarioController.usuarioCorrente.getImc(UsuarioController.usuarioCorrente.getAltura().replace(",", "."),
+                UsuarioController.usuarioCorrente.getPeso().replace(",", "."))));
         this.txtSaldo.setText(UsuarioController.usuarioCorrente.getSaldo());
-        
+
     }
 
     /**
@@ -44,6 +49,8 @@ public class Agenda extends javax.swing.JFrame {
     private void initComponents() {
 
         textField1 = new java.awt.TextField();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         novoEvento = new javax.swing.JButton();
@@ -73,13 +80,44 @@ public class Agenda extends javax.swing.JFrame {
         txtImc = new java.awt.Label();
         txtNome1 = new java.awt.Label();
         jPanel2 = new javax.swing.JPanel();
+        jTabbedPane3 = new javax.swing.JTabbedPane();
+        jPanel6 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
+        jSenhaAtual = new javax.swing.JLabel();
+        jSenhaAtual1 = new javax.swing.JLabel();
+        jNovaSenha = new javax.swing.JLabel();
+        jNovaSenha1 = new javax.swing.JLabel();
+        txtSenhaAtual1 = new javax.swing.JTextField();
+        txtSenhaAtual2 = new javax.swing.JTextField();
+        txtNovaSenha1 = new javax.swing.JTextField();
+        txtNovaSenha2 = new javax.swing.JTextField();
+        jUsuario = new javax.swing.JLabel();
+        txtCUsuario = new javax.swing.JTextField();
+        jButtonSair = new javax.swing.JButton();
 
         textField1.setText("textField1");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 348, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 273, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 348, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 273, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -115,12 +153,12 @@ public class Agenda extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(101, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(73, 73, 73)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(visualizarEventos)
-                    .addComponent(novoEvento))
-                .addGap(76, 76, 76))
+                    .addComponent(novoEvento)
+                    .addComponent(visualizarEventos))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Eventos", jPanel4);
@@ -206,7 +244,7 @@ public class Agenda extends javax.swing.JFrame {
                     .addComponent(jLabel18))
                 .addGap(86, 86, 86)
                 .addComponent(jButtonAtualizar)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -320,60 +358,121 @@ public class Agenda extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel16)
                     .addComponent(txtImc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Perfil", jPanel5);
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 255));
 
-        jButton1.setText("Configurações de Perfil");
+        jButton1.setText("Alterar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton9.setText("Confirgurações de Segurança");
+        jSenhaAtual.setText("Insira a senha atual:");
 
-        jButton14.setText("Reclamações/Elogios");
+        jSenhaAtual1.setText("Insira a senha atual novamente:");
 
-        jButton15.setText("jButton9");
+        jNovaSenha.setText("Nova senha:");
 
-        jButton16.setText("Sair");
+        jNovaSenha1.setText("Confirme a nova senha:");
+
+        txtSenhaAtual1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSenhaAtual1ActionPerformed(evt);
+            }
+        });
+
+        jUsuario.setText("Confirme o nome de usuario:");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSenhaAtual1)
+                            .addComponent(jNovaSenha)
+                            .addComponent(jNovaSenha1)
+                            .addComponent(jSenhaAtual)
+                            .addComponent(jUsuario))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtSenhaAtual1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSenhaAtual2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNovaSenha1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNovaSenha2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 3, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jSenhaAtual)
+                    .addComponent(txtSenhaAtual1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSenhaAtual2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSenhaAtual1))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNovaSenha1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jNovaSenha))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNovaSenha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jNovaSenha1))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jUsuario))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
+        );
+
+        jTabbedPane3.addTab("Alterar Senha", jPanel6);
+
+        jButtonSair.setText("Sair");
+        jButtonSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSairActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(90, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(86, 86, 86))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonSair)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jButtonSair)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton15)
-                .addGap(68, 68, 68)
-                .addComponent(jButton16)
-                .addContainerGap())
+                .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Configurações", jPanel2);
@@ -382,11 +481,13 @@ public class Agenda extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
 
         pack();
@@ -400,7 +501,7 @@ public class Agenda extends javax.swing.JFrame {
     }//GEN-LAST:event_visualizarEventosActionPerformed
 
     private void txtGastosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGastosActionPerformed
-        
+
     }//GEN-LAST:event_txtGastosActionPerformed
 
     private void novoEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoEventoActionPerformed
@@ -411,7 +512,7 @@ public class Agenda extends javax.swing.JFrame {
     }//GEN-LAST:event_novoEventoActionPerformed
 
     private void jButtonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtualizarActionPerformed
-        
+
         UsuarioController.usuarioCorrente.setSaldo(Double.parseDouble(UsuarioController.usuarioCorrente.getSaldo()) + Double.parseDouble(txtGanhos.getText()) - Double.parseDouble(txtGastos.getText()));
         this.txtSaldo.setText(UsuarioController.usuarioCorrente.getSaldo());
         txtGastos.setText("");
@@ -426,8 +527,45 @@ public class Agenda extends javax.swing.JFrame {
     }//GEN-LAST:event_txtGanhosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        try {
+
+            Diretorio diretorio = new Diretorio();
+            ManipuladorArquivo a = new ManipuladorArquivo(diretorio.getUsuarios());
+
+            ArrayList<String> linhas2 = new ArrayList<>();
+            ArrayList<String> linhas = a.armazenar();
+            ArrayList<String[]> palavras = new ArrayList<>();
+
+            for (int i = 0; i < linhas.size(); i++) {
+                String linha = linhas.get(i);
+                palavras.add(linha.split(";"));
+                if (palavras.get(i)[1].equals(UsuarioController.usuarioCorrente.getSenha()) && palavras.get(i)[0].equals(UsuarioController.usuarioCorrente.getUsuario())) {
+                    palavras.get(i)[1] = txtNovaSenha1.getText();
+
+                    for (i = 0; i < palavras.size(); i++) {
+                        linhas2.add(palavras.get(i)[0] + ";" + palavras.get(i)[1] + ";" + palavras.get(i)[2] + ";" + palavras.get(i)[3] + ";" + palavras.get(i)[4] + ";" + palavras.get(i)[5] + ";" + palavras.get(i)[6] + ";" + palavras.get(i)[7]);
+                    }
+                    a.escritorArray(linhas2);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Senha Atual Incorreta");
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtSenhaAtual1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaAtual1ActionPerformed
+
+    }//GEN-LAST:event_txtSenhaAtual1ActionPerformed
+
+    private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
+        setVisible(false);
+        dispose();
+    }//GEN-LAST:event_jButtonSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -455,24 +593,21 @@ public class Agenda extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Agenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
                 new Agenda().setVisible(true);
-                
+
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton9;
     private javax.swing.JButton jButtonAtualizar;
+    private javax.swing.JButton jButtonSair;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -482,24 +617,38 @@ public class Agenda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jNovaSenha;
+    private javax.swing.JLabel jNovaSenha1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JLabel jSenhaAtual;
+    private javax.swing.JLabel jSenhaAtual1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane3;
+    private javax.swing.JLabel jUsuario;
     private javax.swing.JLabel nomenome;
     private javax.swing.JButton novoEvento;
     private java.awt.TextField textField1;
     private java.awt.Label txtAltura;
+    private javax.swing.JTextField txtCUsuario;
     private java.awt.Label txtEmail;
     private javax.swing.JTextField txtGanhos;
     private javax.swing.JTextField txtGastos;
     private java.awt.Label txtIdade;
     private java.awt.Label txtImc;
     private java.awt.Label txtNome1;
+    private javax.swing.JTextField txtNovaSenha1;
+    private javax.swing.JTextField txtNovaSenha2;
     private java.awt.Label txtPeso;
     private java.awt.Label txtSaldo;
+    private javax.swing.JTextField txtSenhaAtual1;
+    private javax.swing.JTextField txtSenhaAtual2;
     private java.awt.Label txtUsuario;
     private javax.swing.JButton visualizarEventos;
     // End of variables declaration//GEN-END:variables

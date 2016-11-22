@@ -73,6 +73,22 @@ public class ManipuladorArquivo {
 
         return arquivo;
     }
+    public ArrayList<Perfil> lerPerfis() throws FileNotFoundException, IOException {
+        ArrayList<Perfil> arquivo = new ArrayList();
+        FileReader f = new FileReader(file);
+        BufferedReader readerf = new BufferedReader(f);
+        String linha = readerf.readLine();
+        while (linha != null) {
+            String [] b = linha.split(";");
+            Perfil novo = new Perfil(b[0], b[1]);
+            
+            arquivo.add(novo);
+            linha = readerf.readLine();
+        }
+
+        return arquivo;
+    }
+    
 
     public static void copiar(String text, ManipuladorArquivo m) throws FileNotFoundException, IOException {
         FileReader f = new FileReader(text);        
@@ -82,5 +98,40 @@ public class ManipuladorArquivo {
             m.escritor(linha);
             linha = readerf.readLine();
         }
+    }
+    
+    public void escritorArray(ArrayList<String> arquivo) throws IOException {
+        FileWriter fw = new FileWriter(file, false);
+        BufferedWriter fwriter = new BufferedWriter(fw);
+        int i = 0;
+        while(i != arquivo.size()){ 
+            fwriter.write(arquivo.get(i) + "\n");
+            i++;
+                
+        }
+            
+        //fwriter.write(linha + "\n");
+        fwriter.close();
+    }
+    
+     public void escritorPerfil(ArrayList<Perfil> arquivo) throws IOException {
+        FileWriter fw = new FileWriter(file, false);
+        BufferedWriter fwriter = new BufferedWriter(fw);
+        int i = 0;
+        while(i != arquivo.size()){ 
+            fwriter.write(arquivo.get(i).getUsuario() + ";"
+                    + arquivo.get(i).getSenha() + ";"
+                    + arquivo.get(i).getNome() + ";"
+                    + arquivo.get(i).getIdade() + ";"
+                    + arquivo.get(i).getEmail() + ";"
+                    + arquivo.get(i).getPeso() + ";"
+                    + arquivo.get(i).getAltura() + ";"
+                    + 0 + "\n");
+            i++;
+                
+        }
+            
+        //fwriter.write(linha + "\n");
+        fwriter.close();
     }
 }
