@@ -535,22 +535,28 @@ public class Agenda extends javax.swing.JFrame {
             ArrayList<String> linhas2 = new ArrayList<>();
             ArrayList<String> linhas = a.armazenar();
             ArrayList<String[]> palavras = new ArrayList<>();
-
-            for (int i = 0; i < linhas.size(); i++) {
-                String linha = linhas.get(i);
+            int aux = 0;
+            for (int j = 0; j < linhas.size(); j++) {
+                String linha = linhas.get(j);
                 palavras.add(linha.split(";"));
-                if (palavras.get(i)[1].equals(UsuarioController.usuarioCorrente.getSenha()) && palavras.get(i)[0].equals(UsuarioController.usuarioCorrente.getUsuario())) {
-                    palavras.get(i)[1] = txtNovaSenha1.getText();
-
-                    for (i = 0; i < palavras.size(); i++) {
-                        linhas2.add(palavras.get(i)[0] + ";" + palavras.get(i)[1] + ";" + palavras.get(i)[2] + ";" + palavras.get(i)[3] + ";" + palavras.get(i)[4] + ";" + palavras.get(i)[5] + ";" + palavras.get(i)[6] + ";" + palavras.get(i)[7]);
-                    }
-                    a.escritorArray(linhas2);
-
-                } else {
-                    JOptionPane.showMessageDialog(null, "Senha Atual Incorreta");
+            if (palavras.get(j)[1].equals(UsuarioController.usuarioCorrente.getSenha()) && palavras.get(j)[0].equals(UsuarioController.usuarioCorrente.getUsuario()) && txtSenhaAtual1.getText().equals(txtSenhaAtual2.getText())) {
+                    palavras.get(j)[1] = txtNovaSenha1.getText();
+                    JOptionPane.showMessageDialog(null, "Senha alterada");
+                    txtSenhaAtual1.setText("");
+                    txtSenhaAtual2.setText("");
+                    txtNovaSenha1.setText("");
+                    aux = 1;
                 }
             }
+            if (aux == 0){
+                JOptionPane.showMessageDialog(null, "Senha nao alterada");
+            }
+            for (int i = 0; i < palavras.size(); i++) {
+                    linhas2.add(palavras.get(i)[0] + ";" + palavras.get(i)[1] + ";" + palavras.get(i)[2] + ";" + palavras.get(i)[3] + ";" + palavras.get(i)[4] + ";" + palavras.get(i)[5] + ";" + palavras.get(i)[6] + ";" + palavras.get(i)[7]);
+                }
+            
+                a.escritorArray(linhas2);
+            
         } catch (FileNotFoundException ex) {
             Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
